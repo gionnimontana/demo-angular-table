@@ -54,7 +54,7 @@ export const addMatch = async (): Promise<boolean> => {
         },
         time: {
             date: date.toLocaleDateString('it-IT'),
-            time: `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
+            time: `${date.getHours()}:${date.getMinutes()}`
         },
         result: {
             away: Math.floor(Math.random() * 5),

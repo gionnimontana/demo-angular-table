@@ -1,63 +1,65 @@
 
 
-
-<div *ngIf="loading; then thenBlock else elseBlock"></div>
-
-<ng-template #thenBlock>
-
-  <mat-spinner></mat-spinner>
-
-</ng-template>
-
-<ng-template #elseBlock>
-
-  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-
-    <!-- ID Column -->
-    <ng-container matColumnDef="id">
-      <th id ="column_id" mat-header-cell *matHeaderCellDef> ID </th>
-      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
-    </ng-container>
-
-    <!-- Teams Column -->
-    <ng-container matColumnDef="teams">
-      <th id ="column_teams" mat-header-cell *matHeaderCellDef> Teams </th>
-      <td mat-cell *matCellDef="let element"> {{element.teams}} </td>
-    </ng-container>
+<div id="match_table_wrapper">
   
-    <!-- Date Column -->
-    <ng-container matColumnDef="date">
-      <th id ="column_date" mat-header-cell *matHeaderCellDef> Date </th>
-      <td mat-cell *matCellDef="let element"> {{element.date}} </td>
-    </ng-container>
-  
-    <!-- Time Column -->
-    <ng-container matColumnDef="time">
-      <th id ="column_time" mat-header-cell *matHeaderCellDef> Time </th>
-      <td mat-cell *matCellDef="let element"> {{element.time}} </td>
-    </ng-container>
-  
-    <!-- Result Column -->
-    <ng-container matColumnDef="result">
-      <th id ="column_result" mat-header-cell *matHeaderCellDef> Result </th>
-      <td mat-cell *matCellDef="let element"> {{element.result}} </td>
-    </ng-container>
+  <div *ngIf="loading; then thenBlock else elseBlock"></div>
 
-    <!-- Action Column -->
-    <ng-container matColumnDef="actions">
-      <th id ="column_actions" mat-header-cell *matHeaderCellDef>
-        <app-add-button [loading]="loadingAddMatch" (click)="addMatch()"></app-add-button>
-      </th>
-      <td mat-cell *matCellDef="let element"> 
-        <app-delete-button 
-          [loading]="loadingDelete[element.id]" 
-          (click)="deleteMatch(element.id)"
-        ></app-delete-button>
-      </td>
-    </ng-container>
+  <ng-template #thenBlock>
   
-    <tr mat-header-row *matHeaderRowDef="displayedColumns sticky: true" ></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
+    <mat-spinner></mat-spinner>
   
-</ng-template>
+  </ng-template>
+  
+  <ng-template #elseBlock>
+  
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  
+      <!-- ID Column -->
+      <ng-container matColumnDef="id">
+        <th id ="column_id" mat-header-cell *matHeaderCellDef> ID </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
+  
+      <!-- Teams Column -->
+      <ng-container matColumnDef="teams">
+        <th id ="column_teams" mat-header-cell *matHeaderCellDef> Teams </th>
+        <td mat-cell *matCellDef="let element"> {{element.teams}} </td>
+      </ng-container>
+    
+      <!-- Date Column -->
+      <ng-container matColumnDef="date">
+        <th id ="column_date" mat-header-cell *matHeaderCellDef> Date </th>
+        <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+      </ng-container>
+    
+      <!-- Time Column -->
+      <ng-container matColumnDef="time">
+        <th id ="column_time" mat-header-cell *matHeaderCellDef> Time </th>
+        <td mat-cell *matCellDef="let element"> {{element.time}} </td>
+      </ng-container>
+    
+      <!-- Result Column -->
+      <ng-container matColumnDef="result">
+        <th id ="column_result" mat-header-cell *matHeaderCellDef> Result </th>
+        <td mat-cell *matCellDef="let element"> {{element.result}} </td>
+      </ng-container>
+  
+      <!-- Action Column -->
+      <ng-container matColumnDef="actions">
+        <th id ="column_actions" mat-header-cell *matHeaderCellDef>
+          <app-add-button [loading]="loadingAddMatch" (click)="addMatch()"></app-add-button>
+        </th>
+        <td mat-cell *matCellDef="let element"> 
+          <app-delete-button 
+            [loading]="loadingDelete[element.id]" 
+            (click)="deleteMatch(element.id)"
+          ></app-delete-button>
+        </td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns sticky: true" ></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    
+  </ng-template>
+</div>

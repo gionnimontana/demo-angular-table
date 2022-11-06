@@ -9,5 +9,5 @@ export function matchesToTableData (matches: MatchesMap): MatchTableRow[] {
         date: targetMatch.time.date,
         time: targetMatch.time.time,
         result: `${targetMatch.result.home} - ${targetMatch.result.away}`
-    }})
+    }}).sort((a, b) => Number(b.id) - Number(a.id))
 }

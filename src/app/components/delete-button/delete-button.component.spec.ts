@@ -20,4 +20,19 @@ describe('DeleteButtonComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should render delete button when not loading', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    component.loading = false;
+    fixture.detectChanges();
+    expect(compiled.querySelector('mat-icon')).toBeTruthy();
+  });
+
+  it('should render spinner on loading', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    component.loading = true;
+    fixture.detectChanges();
+    expect(compiled.querySelector('mat-spinner')).toBeTruthy();
+  });
+
 });

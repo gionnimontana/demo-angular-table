@@ -20,13 +20,13 @@ export class MatchTableComponent implements OnInit {
 
   async ngOnInit() {
     await this.updateTable()
-    this.loading = false
   }
 
   updateTable: () => Promise<void> = async () => {
     const [matches, error] = await getMatchesMap()
     const tableData = matchesToTableData(matches)
     this.dataSource = tableData
+    if (this.loading) this.loading = false
   }
 
   deleteMatch: (id: string) => Promise<void> = async (id: string) => {
