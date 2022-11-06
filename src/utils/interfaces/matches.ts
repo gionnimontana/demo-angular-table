@@ -16,6 +16,7 @@ export interface MatchTeams {
 export interface MatchTime {
     date: string
     time: string
+    uts: number
 }
 
 export interface MatchResult {

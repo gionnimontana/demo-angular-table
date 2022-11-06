@@ -1,3 +1,4 @@
+import { getTwoRandomTeamsNames } from "src/utils/helpers/matches"
 import { Match, MatchesMap } from "src/utils/interfaces/matches"
 
 let matchesCache: MatchesMap | null = null
@@ -47,14 +48,18 @@ export const addMatch = async (): Promise<boolean> => {
     allIDS.sort()
     const newMatchID = allIDS.length > 0 ? allIDS[allIDS.length - 1] + 1 : 23639961
     const date = new Date()
+    const teamNames = getTwoRandomTeamsNames(matchesCache)
+    const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    console.log(tz);
     const match: Match = {
         teams: {
-            away: { name: 'teamY' },
-            home: { name: 'teamX' }
+            away: { name: teamNames[0] },
+            home: { name: teamNames[1] }
         },
         time: {
             date: date.toLocaleDateString('it-IT'),
-            time: `${date.getHours()}:${date.getMinutes()}`
+            time: `${date.getHours()}:${date.getMinutes()}`,
+            uts: date.getTime() / 1000
         },
         result: {
             away: Math.floor(Math.random() * 5),
