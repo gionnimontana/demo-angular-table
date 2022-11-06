@@ -1,0 +1,27 @@
+table {
+    width: 100%;
+  }
+
+  #column_id {
+    width: 110px;
+  }
+
+  #column_teams {
+    width: 280px;
+  }
+
+  #column_date {
+    width: 100px;
+  }
+
+  #column_time {
+    width: 80px;
+  }
+
+  #column_result {
+    width: 75px;
+  }
+
+  #column_actions {
+    width: 10px;
+  }

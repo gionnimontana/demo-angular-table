@@ -1,0 +1,11 @@
+<button mat-mini-fab color="primary" aria-label="Add button">
+    <div *ngIf="loading; then loadDeleteBlock else deleteBlock"></div>
+    <ng-template #loadDeleteBlock>
+    <div class="delete_spinner_container">
+        <mat-spinner color="accent" diameter="20"></mat-spinner>
+    </div>
+    </ng-template>
+    <ng-template #deleteBlock>
+        <mat-icon>add</mat-icon>
+    </ng-template>
+</button>

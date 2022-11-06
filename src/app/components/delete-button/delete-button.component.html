@@ -1,0 +1,15 @@
+<div *ngIf="loading; then loadDeleteBlock else deleteBlock"></div>
+<ng-template #loadDeleteBlock>
+  <div class="delete_spinner_container">
+    <mat-spinner color="accent" diameter="20"></mat-spinner>
+  </div>
+</ng-template>
+<ng-template #deleteBlock>
+  <button 
+    mat-icon-button 
+    color="accent" 
+    aria-label="Delete row" 
+  >
+    <mat-icon>delete</mat-icon>
+  </button>
+</ng-template>
